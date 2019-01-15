@@ -1,0 +1,9 @@
+{
+   "name": "musebridge",
+   "version": "0.0.1",
+   "main": "oscdump.js",
+   "ignore": [],
+   "dependencies": {
+      "osc": "^2.2.4"
+   }
+}

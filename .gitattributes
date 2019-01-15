@@ -1,0 +1,33 @@
+# By default let git try to figure out which files are text and perform crlf->lf on them
+*            text=auto
+
+*.as         text
+*.html       text diff=html
+*.css        text
+*.js         text diff=javascript
+
+.project    text
+*.launch     text
+
+*.bat        text
+*.ps1        text
+*.txt        text
+*.md         text
+*.xml        text
+
+# Images should be treated as binary
+# (binary is a macro for -text -diff)
+*.png        binary
+*.gif        binary
+*.ico        binary
+*.jepg       binary
+*.jpg        binary
+*.dll        binary
+*.exe        binary
+
+# handle swf's and swc's as binaries #
+## stackoverflow.com/questions/1529178/git-flash-builder-workflow-how-do-i-set-it-up-so-git-works-smoothly
+
+*.swf        -crlf -diff -merge
+*.swc        -crlf -diff -merge
+*.fla        -crlf -diff -merge

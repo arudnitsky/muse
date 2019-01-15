@@ -1,0 +1,10 @@
+Message: address: /muse/elements/touching_forehead, args: 1
+Message: address: /muse/elements/jaw_clench, args: 1
+Message: address: /muse/elements/alpha_absolute, args: 0.0931958332657814,0,0,0.3489353656768799
+Message: address: /muse/elements/beta_absolute, args: -0.2067175656557083,0,0,0.1339440792798996
+Message: address: /muse/elements/delta_absolute, args: 1.6924837827682495,0,0,-0.6479480862617493
+Message: address: /muse/elements/theta_absolute, args: 0.30854761600494385,0,0,-0.3915095627307892
+Message: address: /muse/elements/gamma_absolute, args: -0.4391169846057892,0,0,-0.025799458846449852
+Message: address: /muse/algorithm/mellow, args: 0
+Message: address: /muse/algorithm/concentration, args: 0
+Message: address: /muse/elements/horseshoe, args: 1,2,2,1

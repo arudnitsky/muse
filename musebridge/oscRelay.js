@@ -44,7 +44,7 @@ var start = function() {
    udpPort.open();
 
    // Create an Express-based Web Socket server to which OSC messages will be relayed.
-   var appResources = __dirname + '/web',
+   var appResources = __dirname + '/client/build',
       app = express(),
       server = app.listen(8081),
       wss = new WebSocket.Server({
@@ -64,7 +64,7 @@ var start = function() {
    });
 
    udpPort.on('message', function(msg, info) {
-      console.log('Message: address: ' + msg.address + ', args: ' + msg.args);
+      console.log('oscRelay UDP Message: address: ' + msg.address + ', args: ' + msg.args);
       // if (msg.address === '/muse/algorithm/concentration') {
       //    console.log('Message: address: ' + msg.address + ', args: ' + msg.args[0]);
       // }

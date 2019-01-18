@@ -11,7 +11,8 @@ class App extends Component {
 
       this.state = {
          address: 'Hello World!',
-         args: []
+         args: [1.2,2.3],
+         info: '[1,2,3.4]'
       }
 
       this.oscSocket = new osc.WebSocketPort({
@@ -30,7 +31,7 @@ class App extends Component {
    
    receivedMessage(msg) {
       console.log('App OSC message address: ' + msg.address);
-      this.setState({ address: msg.address, args: msg.args });
+      this.setState({ address: msg.address, args: msg.args, info: JSON.stringify(msg.args) });
 
          // if (msg.address === '/muse/algorithm/concentration') {
          //    console.log('App OSC message address: ' + msg.address);
@@ -42,25 +43,11 @@ class App extends Component {
    render() {
       return (
          <div className="App">
-            <header className="App-header">
-               {/* <img src={logo} className="App-logo" alt="logo" />
-               <p>
-                  Edit <code>src/App.js</code> and save to reload.
-               </p>
-               <a
-                  className="App-link"
-                  href="https://reactjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-               >
-               Learn React
-               </a> */}
-
-               <div className="App-message">
-                  message {this.state.address}
-                  params {this.state.args}
-               </div>
-            </header>
+            <div className="App-message">
+               <p>message: {this.state.address}</p>
+               <p>params: {this.state.args}</p>
+               <p>info: {this.state.info}</p>
+            </div>
          </div>
       );
    }

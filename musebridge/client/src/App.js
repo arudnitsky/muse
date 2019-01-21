@@ -2,6 +2,19 @@ import React, { Component } from 'react';
 import * as autoBind from 'react-autobind';
 import osc from '../node_modules/osc/dist/osc-browser.js';
 import './App.css';
+// import  * as EEGDisplay from './EEGDisplay.js';
+// import ShowcaseButton from '../showcase-components/showcase-button';
+import {
+   XYPlot,
+   XAxis,
+   YAxis,
+   VerticalGridLines,
+   HorizontalGridLines,
+   VerticalBarSeries,
+   VerticalBarSeriesCanvas,
+   LabelSeries
+} from 'react-vis';
+
 
 class App extends Component {
    constructor(props) {
@@ -46,6 +59,9 @@ class App extends Component {
                <p>message: {this.state.address}</p>
                <p>params: {this.state.args}</p>
                <p>info: {this.state.info}</p>
+            </div>
+            <div>
+               <EEGDisplay></EEGDisplay>/>
             </div>
          </div>
       );

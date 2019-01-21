@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import * as autoBind from 'react-autobind';
 import osc from '../node_modules/osc/dist/osc-browser.js';
-//import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

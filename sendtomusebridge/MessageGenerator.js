@@ -4,6 +4,11 @@ function getRandomInt(min, max) {
    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+
+function getRandomFloatInRange() {
+   return Math.random() * 2 - 1;
+};
+
 var messages = [
    '/muse/elements/alpha_absolute',
    '/muse/elements/beta_absolute',
@@ -22,7 +27,7 @@ function getRandomMessage() {
    ][getRandomInt(0, messages.length-1)];
 }
 
-function generateMessage() {
+function generateFourSensorMessage() {
    return {
       address: getRandomMessage(),
       args: [
@@ -46,6 +51,18 @@ function generateMessage() {
    };
 };
 
+function generateSingleSensorMessage() {
+   return {
+      address: getRandomMessage(),
+      args: [
+         {
+            type: 'f',
+            value: getRandomFloatInRange()
+         }
+      ]
+   };
+};
+
 module.exports = {
-   generateMessage: generateMessage
+   generateMessage: generateSingleSensorMessage
 };

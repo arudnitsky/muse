@@ -44,32 +44,30 @@ var start = function() {
    udpPort.open();
 
    // Create an Express-based Web Socket server to which OSC messages will be relayed.
-   var appResources = __dirname + '/client/build',
-      app = express(),
-      server = app.listen(8081),
-      wss = new WebSocket.Server({
-         server: server
-      });
+   var app = express();
+   var server = app.listen(8081);
+   app.use('/', express.static(__dirname + '/client/build'));
+   
+   // Set up the relay from UDP to the WebSocket
+   var wss = new WebSocket.Server({
+      server: server
+   });
 
-   app.use('/', express.static(appResources));
    wss.on('connection', function(socket) {
       logger.log('A Web Socket connection has been established!');
-      var socketPort = new osc.WebSocketPort({
+      socketPort = new osc.WebSocketPort({
          socket: socket
       });
 
-      var relay = new osc.Relay(udpPort, socketPort, {
-         raw: true
-      });
+      var relay = new osc.Relay(udpPort, socketPort, { raw: true });
    });
 
-   udpPort.on('message', function(msg, info) {
-      console.log('oscRelay UDP Message: address: ' + msg.address + ', args: ' + msg.args);
-      // if (msg.address === '/muse/algorithm/concentration') {
-      //    console.log('Message: address: ' + msg.address + ', args: ' + msg.args[0]);
-      // }
-   });
-
+   // udpPort.on('message', function(msg, info) {
+   //    // console.log('oscRelay UDP Message: address: ' + msg.address + ', args: ' + msg.args);
+   //    // if (msg.address === '/muse/algorithm/concentration') {
+   //    //    console.log('Message: address: ' + msg.address + ', args: ' + msg.args[0]);
+   //    // }
+   // });
 };
 
 module.exports = {

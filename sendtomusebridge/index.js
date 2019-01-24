@@ -19,4 +19,4 @@ setInterval(function() {
    console.log('Sending message', msg , 'to', 
                udpPort.options.remoteAddress + ':' + udpPort.options.remotePort);
    udpPort.send(msg);
-}, 1000);
+}, 10);

@@ -56,7 +56,7 @@ export default class EEGDisplay extends React.Component {
                onClick={() => this.setState({ useCanvas: !useCanvas })}
                buttonContent={content}
             /> */}
-            <XYPlot xType="ordinal" width={300} height={300} xDistance={100}>
+            <XYPlot xType="ordinal" width={300} height={900} xDistance={100}>               
                <VerticalGridLines />
                <HorizontalGridLines />
                <XAxis />

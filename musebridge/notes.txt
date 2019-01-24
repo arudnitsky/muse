@@ -8,3 +8,31 @@ Message: address: /muse/elements/gamma_absolute, args: -0.4391169846057892,0,0,-
 Message: address: /muse/algorithm/mellow, args: 0
 Message: address: /muse/algorithm/concentration, args: 0
 Message: address: /muse/elements/horseshoe, args: 1,2,2,1
+
+
+oscRelay UDP Message: address: /muse/eeg, args: 855.3897705078125,820.84521484375,829.070068359375,972.1834106445312
+
+
+
+with sendtomusebridge
+oscRelay UDP Message: address: /muse/elements/beta_absolute, args: 0.4100557565689087
+oscRelay UDP Message: address: /muse/elements/alpha_absolute, args: -0.21273349225521088
+oscRelay UDP Message: address: /muse/elements/delta_absolute, args: 0.014236374758183956
+oscRelay UDP Message: address: /muse/elements/gamma_absolute, args: -0.0996084213256836
+oscRelay UDP Message: address: /muse/elements/gamma_absolute, args: 0.10898663848638535
+oscRelay UDP Message: address: /muse/elements/theta_absolute, args: 0.5069419145584106
+oscRelay UDP Message: address: /muse/elements/beta_absolute, args: -0.031956687569618225
+oscRelay UDP Message: address: /muse/elements/alpha_absolute, args: -0.26335930824279785
+
+with muse
+oscRelay UDP Message: address: /muse/elements/beta_absolute, args: 0.721698522567749,0.3047249913215637,1.4107608795166016,0.38239097595214844
+oscRelay UDP Message: address: /muse/elements/delta_absolute, args: 0.5101469159126282,1.002246379852295,1.2973095178604126,0.9773355722427368
+oscRelay UDP Message: address: /muse/elements/theta_absolute, args: 0.595191240310669,0.5932522416114807,0.17648638784885406,0.9580631852149963
+oscRelay UDP Message: address: /muse/elements/gamma_absolute, args: 0.29736870527267456,-0.1193668320775032,1.3141851425170898,0.11860310286283493
+
+after changing settings:
+oscRelay UDP Message: address: /muse/elements/alpha_absolute, args: 0.9055900573730469
+oscRelay UDP Message: address: /muse/elements/beta_absolute, args: 0.6880068778991699
+oscRelay UDP Message: address: /muse/elements/delta_absolute, args: 1.1182794570922852
+oscRelay UDP Message: address: /muse/elements/theta_absolute, args: 0.5913991332054138
+oscRelay UDP Message: address: /muse/elements/gamma_absolute, args: 0.3369406461715698

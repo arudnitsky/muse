@@ -3,7 +3,7 @@ Web site served up by MuseBridge
 
 1. cd musebridge/client
 2. yarn
-3. Edit node_modules/osc/dist/osc-browser.js and change '../osc.js' to './osc.js'
+3. Edit ```node_modules/osc/dist/osc-browser.js``` and change 2 instances of '../osc.js' to './osc.js'
 4. yarn build
 
 # MuseBridge

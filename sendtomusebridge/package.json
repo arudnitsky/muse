@@ -2,7 +2,8 @@
    "name": "sendtomusebridge",
    "version": "1.0.0",
    "description": "Sends test OSC packets to musebridge",
-   "license": "unlicense",
+   "private": true,
+   "license": "Beerware License",
    "main": "index.js",
    "dependencies": {
       "osc": "^2.2.4"

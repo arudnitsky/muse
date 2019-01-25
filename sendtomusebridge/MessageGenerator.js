@@ -9,13 +9,13 @@ function getRandomFloatInRange() {
    return Math.random() * 2 - 1;
 };
 
-var messages = [
-   '/muse/elements/alpha_absolute',
-   '/muse/elements/beta_absolute',
-   '/muse/elements/delta_absolute',
-   '/muse/elements/theta_absolute',
-   '/muse/elements/gamma_absolute'
-];
+// var messages = [
+//    '/muse/elements/alpha_absolute',
+//    '/muse/elements/beta_absolute',
+//    '/muse/elements/delta_absolute',
+//    '/muse/elements/theta_absolute',
+//    '/muse/elements/gamma_absolute'
+// ];
 
 function getRandomMessage() {
    return [
@@ -24,7 +24,7 @@ function getRandomMessage() {
       '/muse/elements/delta_absolute',
       '/muse/elements/theta_absolute',
       '/muse/elements/gamma_absolute'
-   ][getRandomInt(0, messages.length-1)];
+   ][getRandomInt(0, 4)];
 }
 
 function generateFourSensorMessage() {
@@ -63,6 +63,11 @@ function generateSingleSensorMessage() {
    };
 };
 
+function formatMessage(msg) {
+   return msg.address + msg.args.map((arg) => ' ' + arg.type +':' + arg.value + ' ');
+}
+
 module.exports = {
-   generateMessage: generateSingleSensorMessage
+   generateMessage: generateSingleSensorMessage,
+   formatMessage: formatMessage
 };

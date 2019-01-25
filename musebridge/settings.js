@@ -1,5 +1,6 @@
 module.exports = {
-   localMachineIp: 'localhost',
-   receiveUdpPort: 5000,
-   sendUdpPort: 51721
+   oscRelayIpAddress: '127.0.0.1',
+   oscRelayReceiveUdpPort: 5000,
+   oscRelayWebSocketPort: 8081,
+   demoWebsitePort: 8081
 };

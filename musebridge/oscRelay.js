@@ -25,49 +25,48 @@ var getIPAddresses = function() {
 var start = function() {
    // Bind to a UDP socket to listen for incoming OSC events.
    var udpPort = new osc.UDPPort({
-      localAddress: '0.0.0.0',
-      localPort: settings.receiveUdpPort
+      localAddress: '0.0.0.0', // listen on all interface   //settings.oscRelayIpAddress,
+      localPort: settings.oscRelayReceiveUdpPort
    });
 
    udpPort.on('ready', function() {
       var ipAddresses = getIPAddresses();
       logger.log('Listening for OSC over UDP.');
       ipAddresses.forEach(function(address) {
-         var message = 'Host: ' + address + ', Port: ' + udpPort.options.localPort;
+         var message = '   Host: ' + address + ':' + udpPort.options.localPort;
          logger.log(message);
       });
       logger.log(
-         'To start the demo, go to http://localhost:8081 in your web browser.'
+         'To start the demo, open http://' + settings.oscRelayIpAddress + ':' + 
+         settings.demoWebsitePort + ' in your web browser.'
       );
    });
 
    udpPort.open();
 
-   // Create an Express-based Web Socket server to which OSC messages will be relayed.
+   // Serve up the React website that will connnect to the WebSocket.
    var app = express();
-   var server = app.listen(8081);
+   var server = app.listen(settings.demoWebsitePort);
    app.use('/', express.static(__dirname + '/client/build'));
    
-   // Set up the relay from UDP to the WebSocket
+   // Create an Express-based Web Socket server to which OSC messages will be relayed.
    var wss = new WebSocket.Server({
       server: server
    });
-
+   
+   // Set up the OSC relay from UDP to the WebSocket
    wss.on('connection', function(socket) {
-      logger.log('A Web Socket connection has been established!');
+      logger.log('An incoming WebSocket connection has been established!');
       socketPort = new osc.WebSocketPort({
          socket: socket
       });
 
-      var relay = new osc.Relay(udpPort, socketPort, { raw: true });
+      var relay = new osc.Relay(udpPort, socketPort, { raw: true }); // technically not a supported Osc.js API function
    });
 
-   // udpPort.on('message', function(msg, info) {
-   //    // console.log('oscRelay UDP Message: address: ' + msg.address + ', args: ' + msg.args);
-   //    // if (msg.address === '/muse/algorithm/concentration') {
-   //    //    console.log('Message: address: ' + msg.address + ', args: ' + msg.args[0]);
-   //    // }
-   // });
+   udpPort.on('message', function(msg, info) {
+      console.log('UDP Message: address: ' + msg.address + ', args: ' + msg.args);
+   });
 };
 
 module.exports = {

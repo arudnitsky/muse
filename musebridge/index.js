@@ -9,7 +9,7 @@ const APP_NAME = 'MuseBridge';
 logger.log('======================================================');
 logger.log('                    ' + APP_NAME);
 logger.log('======================================================');
-logger.log(APP_NAME + ' started on ' + settings.localMachineIp);
+logger.log(APP_NAME + ' started on ' + settings.oscRelayIpAddress);
 logger.log('Press Ctrl-C to exit');
 
 if (process.platform === 'win32') {

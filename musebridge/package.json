@@ -2,7 +2,7 @@
    "name": "musebridge",
    "version": "1.0.0",
    "description": "Innovation Time Demo 1/2019",
-   "license": "Unlicense",
+   "license": "Beerware",
    "main": "index.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"

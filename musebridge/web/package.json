@@ -1,6 +1,8 @@
 {
    "name": "musebridge",
    "version": "0.0.1",
+   "private": true,
+   "license": "Beerware",
    "main": "oscdump.js",
    "ignore": [],
    "dependencies": {

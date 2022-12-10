@@ -9,7 +9,7 @@
    },
    "dependencies": {
       "dateformat": "^2.0.0",
-      "express": "^4.16.4",
+      "express": "^4.17.3",
       "fs": "0.0.1-security",
       "osc": "^2.2.4",
       "path": "^0.12.7",
